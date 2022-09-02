@@ -35,3 +35,13 @@ It correctly bundles React in production mode and optimizes the build for the be
 - Implement Back functionality to previous url.
 - Toggle Theme of project to Dark or Light (by using Context API)
 - You will view it on both mobile and desktop screens.
+
+## Structure
+<pre>
+|- public
+|- src
+  |- components
+  |- context
+  |- pages
+  |- routes
+</pre>
