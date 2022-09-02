@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import Routes from "./routes";
+import { useState } from "react";
+import { themes, themeContext } from "./context";
+import { GlobalStyle } from "./app.style";
+const App = () => {
+  const [theme, setTheme] = useState(themes.light);
+  const value = { theme, setTheme };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <GlobalStyle theme={theme} />
+      <themeContext.Provider value={value}>
+        <Routes />
+      </themeContext.Provider>
+    </>
   );
-}
+};
 
 export default App;
