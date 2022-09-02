@@ -7,11 +7,13 @@ const Skeleton = ({ theme, count }) => {
     let skeletons = [];
     for (let i = 1; i <= count; i++) {
       skeletons.push(
-        <div className="skeleton-card">
-          <div className="img"></div>
-          <div className="content">
-            <div className="small"></div>
-            <div className="big"></div>
+        <div className="skeleton-card-container">
+          <div className="skeleton-card">
+            <div className="img"></div>
+            <div className="content">
+              <div className="small"></div>
+              <div className="big"></div>
+            </div>
           </div>
         </div>
       );

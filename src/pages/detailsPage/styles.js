@@ -11,7 +11,7 @@ export const GlobalStyle = createGlobalStyle`
     box-shadow:0px 0px 8px 0px #80808038;
     border:none;
     background-color : ${(props) => props.theme.secondary};
-    color:${(props) => props.theme.fontColor};
+    color:${(props) => props.theme.primaryText};
     border-radius:4px;
     display:flex;
     align-items:center;
@@ -39,17 +39,20 @@ export const GlobalStyle = createGlobalStyle`
     min-width:350px;
 }
 
-.country-detailes {
+.country-details {
     display:flex ;
     margin-top:10px
 }
-.country-detailes .column-1{
+.country-details .column-1{
     width:50%;
 }
-.country-detailes p{
+.country-details p{
     text-align:left;
     margin-top:10px;
     font-size:14px
+}
+.country-details span{
+    color:${(props) => props.theme.secondaryText}
 }
 .border-button{
     height:30px;
@@ -57,7 +60,7 @@ export const GlobalStyle = createGlobalStyle`
     box-shadow:0px 0px 8px 0px #80808038;
     border:none;
     background-color : ${(props) => props.theme.secondary};
-    color:${(props) => props.theme.fontColor};
+    color:${(props) => props.theme.primaryText};
     border-radius:4px;
     cursor:pointer;
     margin: 4px
@@ -90,18 +93,18 @@ export const GlobalStyle = createGlobalStyle`
     h1{
         font-size:16px
     }
-    .country-detailes{
+    .country-details{
         margin-top:10px;
         flex-direction:column
     }
-    .country-detailes .column-1{
+    .country-details .column-1{
         width:100%;
     }
-    .country-detailes .column-2{
+    .country-details .column-2{
         margin-top:30px
     }
 
-    .country-detailes p{
+    .country-details p{
         font-size:13px;
         margin-top:12px
     }

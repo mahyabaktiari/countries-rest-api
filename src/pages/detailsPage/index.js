@@ -5,7 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { GlobalStyle } from "./styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-const Detailes = ({ theme }) => {
+import LoadingComponent from "../../components/Loading";
+const Details = ({ theme }) => {
   const [countryInfo, setCountryInfo] = useState();
   const params = useParams();
   const navigate = useNavigate();
@@ -35,25 +36,42 @@ const Detailes = ({ theme }) => {
             <img src={countryInfo?.flags.png} />
             <div className="country-info">
               <h1>{countryInfo?.name.common}</h1>
-              <div className="country-detailes">
+              <div className="country-details">
                 <div className="column-1">
                   <p>
-                    Native Name:
-                    {Object?.values(countryInfo?.name.nativeName)[0].common}
+                    Native Name:{" "}
+                    <span>
+                      {Object?.values(countryInfo?.name.nativeName)[0].common}
+                    </span>
                   </p>
-                  <p>Population :{countryInfo?.population}</p>
-                  <p>Region : {countryInfo?.region}</p>
-                  <p>Sub Regin:{countryInfo?.subregion}</p>
-                  <p>Capital:{countryInfo?.capital}</p>
+                  <p>
+                    Population: <span>{countryInfo?.population}</span>
+                  </p>
+                  <p>
+                    Region: <span>{countryInfo?.region}</span>
+                  </p>
+                  <p>
+                    Sub Regin: <span>{countryInfo?.subregion}</span>
+                  </p>
+                  <p>
+                    Capital: <span>{countryInfo?.capital}</span>
+                  </p>
                 </div>
                 <div className="column-2">
-                  <p>Top Level Domain : {countryInfo?.tld}</p>
                   <p>
-                    Currnecies :{Object.values(countryInfo?.currencies)[0].name}
+                    Top Level Domain: <span>{countryInfo?.tld}</span>
                   </p>
                   <p>
-                    Languages :
-                    {Object?.values(countryInfo?.languages).toString()}
+                    Currnecies:{" "}
+                    <span>
+                      {Object.values(countryInfo?.currencies)[0].name}
+                    </span>
+                  </p>
+                  <p>
+                    Languages:{" "}
+                    <span>
+                      {Object?.values(countryInfo?.languages).toString()}
+                    </span>
                   </p>
                 </div>
               </div>
@@ -61,7 +79,7 @@ const Detailes = ({ theme }) => {
               <div className="border-countries">
                 <p>Border Counties :</p>
                 <div>
-                  {countryInfo?.borders.map((border) => (
+                  {countryInfo?.borders?.map((border) => (
                     <button
                       className="border-button"
                       key={border}
@@ -75,11 +93,11 @@ const Detailes = ({ theme }) => {
             </div>
           </div>
         ) : (
-          "is loading ..."
+          <LoadingComponent />
         )}
       </div>
     </>
   );
 };
 
-export default Detailes;
+export default Details;

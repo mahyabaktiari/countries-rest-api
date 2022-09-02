@@ -1,15 +1,15 @@
 import styled, { createGlobalStyle } from "styled-components";
 export const GlobalStyle = createGlobalStyle`
 .filter-container{
-    position:relative
+    position:relative;
+    min-width:200px;
 }
 .filterbar{
     display:flex;
     align-items:center;
     background-color:${(props) => props.theme.secondary};
-    color:${(props) => props.theme.fontColor};
+    color:${(props) => props.theme.primaryText};
     height:45px;
-    width:150px;
     box-shadow:0px 0px 8px 0px #80808038;
     border-radius:4px;
     padding: 0 20px;
@@ -21,11 +21,12 @@ export const GlobalStyle = createGlobalStyle`
 .list{
     position:absolute;
     background-color:${(props) => props.theme.secondary};
-    width:150px;
     margin-top:10px;
     box-shadow:0px 0px 8px 0px #80808038;
     border-radius:4px;
     padding: 0 20px;
+    left:0;
+    width:100%
 }
 .list ul{
     list-style: none;
@@ -40,7 +41,7 @@ export const GlobalStyle = createGlobalStyle`
 }
 @media only screen and (max-width: 768px) {
     .filter-container{
-        margin-top:10px
+        margin-top:20px
     }
 }
 `;

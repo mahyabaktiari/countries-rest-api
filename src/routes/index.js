@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import Navbar from "../components/navbar";
 import { themeContext, themes } from "../context";
-import Detailes from "../pages/detailesPage";
+import Details from "../pages/detailsPage";
 import Home from "../pages/homePage";
 
 export default function Routes() {
@@ -20,7 +20,7 @@ export default function Routes() {
       <Navbar theme={theme} toggleTheme={toggleTheme} />
       <div className="container">
         <RoutesWrapper>
-          <Route path="/:name" element={<Detailes theme={theme} />}></Route>
+          <Route path="/:name" element={<Details theme={theme} />}></Route>
           <Route path="/" element={<Home theme={theme} />}></Route>
         </RoutesWrapper>
       </div>

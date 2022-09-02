@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { GlobalStyle } from "./styles";
 //icon
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { faL, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import Filter from "../../components/filterComponent";
 import { useSearchParams } from "react-router-dom";
@@ -14,6 +14,7 @@ import LoadingComponent from "../../components/Loading";
 const Home = ({ theme }) => {
   const [allCountries, setAllCountries] = useState([]);
   const [chunkOfCountries, setChunkOfCountries] = useState([]);
+  const [nameCountry, setNameCountry] = useState("");
   const [loading, setloading] = useState(false);
   const [isFetching, setIsFetching] = useState(false);
   const [filter, setFilter] = useSearchParams();
@@ -25,10 +26,10 @@ const Home = ({ theme }) => {
 
   const getCountries = (name) => {
     setloading(true);
-    let url = region
-      ? `https://restcountries.com/v3.1/region/${region}`
-      : name
+    let url = name
       ? `https://restcountries.com/v3.1/name/${name}`
+      : region
+      ? `https://restcountries.com/v3.1/region/${region}`
       : "https://restcountries.com/v3.1/all";
     try {
       axios.get(url).then((res) => {
@@ -43,7 +44,6 @@ const Home = ({ theme }) => {
 
   const searchCountry = (e) => {
     if (e.key == "Enter") {
-      setFilter("");
       getCountries(e.target.value);
     }
   };
@@ -94,8 +94,10 @@ const Home = ({ theme }) => {
           <div className="searchbar">
             <FontAwesomeIcon icon={faMagnifyingGlass} />
             <input
+              value={nameCountry}
               placeholder="Search for a country ..."
               onKeyDown={searchCountry}
+              onChange={(e) => setNameCountry(e.target.value)}
             />
           </div>
           <Filter
@@ -112,22 +114,24 @@ const Home = ({ theme }) => {
               return (
                 <div
                   key={country.area}
-                  className="country-card"
+                  className="country-card-container"
                   onClick={() => navigate(`/${country.cioc}`)}
                 >
-                  <div>
-                    <img src={country.flags.png} />
+                  <div className="country-card">
                     <div>
-                      <h1>{country.name.common}</h1>
-                      <p className="description">
-                        population : <span>{country.population}</span>
-                      </p>
-                      <p className="description">
-                        region : <span>{country.region}</span>
-                      </p>
-                      <p className="description">
-                        capital :<span>{country.capital}</span>
-                      </p>
+                      <img src={country.flags.png} />
+                      <div>
+                        <h1>{country.name.common}</h1>
+                        <p className="description">
+                          population : <span>{country.population}</span>
+                        </p>
+                        <p className="description">
+                          region : <span>{country.region}</span>
+                        </p>
+                        <p className="description">
+                          capital :<span>{country.capital}</span>
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>

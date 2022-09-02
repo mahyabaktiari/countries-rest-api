@@ -4,7 +4,7 @@ export const GlobalStyle = createGlobalStyle`
     display:flex;
     justify-content: space-between;
     align-items:center;
-    padding : 28px
+    padding : 40px ;
 }
 .searchbar{
     display:flex;
@@ -21,10 +21,13 @@ export const GlobalStyle = createGlobalStyle`
     flex:1;
     height:100%;
     background-color:${(props) => props.theme.secondary};
-    color:${(props) => props.theme.fontColor};
+    color:${(props) => props.theme.primaryText};
     padding:0;
     margin-left:20px
 }
+::placeholder {
+    color: ${(props) => props.theme.primaryText};
+  }
 .searchbar input:focus-visible{
   outline: 0;
   padding: 0;
@@ -32,22 +35,25 @@ export const GlobalStyle = createGlobalStyle`
 .country-container{
     display:flex;
     flex-wrap:wrap;
-    gap:40px;
-    justify-content:center
+    justify-content:flex-start;
+    padding:0 10px
+}
+.country-card-container {
+    padding:30px;
+    width:25%;
 }
 .country-card{
-    min-width:300px;
+    min-width:100%;
     background-color:${(props) => props.theme.secondary};
     box-shadow:0px 0px 8px 0px #80808038;
     border-radius:4px;
-    width:22%;
     text-align:left;
     padding-bottom:40px;
     cursor:pointer
 }
 .country-card img{
     width:100%;
-    height:190px;
+    height:170px;
     objectFit: cover;
     border-radius:4px 4px 0 0;
 }
@@ -61,9 +67,14 @@ export const GlobalStyle = createGlobalStyle`
     margin:5px 0
 }
 .description span{
-    color:gray
+    color:${(props) => props.theme.secondaryText}
 }
 
+@media only screen and (max-width: 992px) {
+    .country-card-container{
+        width:33%;
+    }
+}
 @media only screen and (max-width: 768px) {
     .header{
     flex-direction:column;
@@ -77,9 +88,10 @@ export const GlobalStyle = createGlobalStyle`
         width:100%;
         box-sizing:border-box
     }
-    .country-card{
+    .country-card-container{
         width:100%;
-        margin:20px
+        margin:20px 10px;
+        padding:0
     }
     .country-card img{
         height:100%

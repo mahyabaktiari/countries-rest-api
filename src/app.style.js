@@ -2,12 +2,13 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyle = createGlobalStyle`
 *{
     padding:0;
-    margin:0
+    margin:0;
+    box-sizing:border-box
 }
 html{
     background-color : ${(props) => props.theme.primary};
     font-family:Nunito Sans;
-    color:${(props) => props.theme.fontColor};
+    color:${(props) => props.theme.primaryText};
 }
 .container{
     max-width:1440px;

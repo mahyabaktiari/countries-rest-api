@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 export const GlobalStyle = createGlobalStyle`
 .navbar{
     background-color: ${(props) => props.theme.secondary};
-    color:${(props) => props.theme.fontColor};
+    color:${(props) => props.theme.primaryText};
     box-shadow: #80808026 1px 1px 7px 1px;
     font-family:Nunito Sans;
 }
