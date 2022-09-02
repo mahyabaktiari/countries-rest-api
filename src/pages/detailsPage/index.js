@@ -2,10 +2,11 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { GlobalStyle } from "./styles";
+import { DetailsStyle } from "./styles";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import LoadingComponent from "../../components/Loading";
+
 const Details = ({ theme }) => {
   const [countryInfo, setCountryInfo] = useState();
   const params = useParams();
@@ -25,7 +26,7 @@ const Details = ({ theme }) => {
 
   return (
     <>
-      <GlobalStyle theme={theme} />
+      <DetailsStyle theme={theme} />
       <div className="container-detaile-page">
         <button className="back-button" onClick={() => navigate(-1)}>
           <FontAwesomeIcon icon={faArrowLeft} />
@@ -87,7 +88,7 @@ const Details = ({ theme }) => {
                     >
                       {border}
                     </button>
-                  ))}
+                  )) || "---"}
                 </div>
               </div>
             </div>

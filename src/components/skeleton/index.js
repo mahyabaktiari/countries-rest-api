@@ -11,8 +11,9 @@ const Skeleton = ({ theme, count }) => {
           <div className="skeleton-card">
             <div className="img"></div>
             <div className="content">
-              <div className="small"></div>
               <div className="big"></div>
+              <div className="big"></div>
+              <div className="small"></div>
             </div>
           </div>
         </div>

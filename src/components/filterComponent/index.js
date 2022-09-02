@@ -1,4 +1,4 @@
-import { GlobalStyle } from "./style";
+import { FilterStyle } from "./style";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
@@ -8,7 +8,7 @@ const Filter = ({ filterCountries, theme, region }) => {
 
   return (
     <>
-      <GlobalStyle theme={theme} />
+      <FilterStyle theme={theme} />
       <div className="filter-container">
         <div className="filterbar" onClick={() => setIsOpenList(!isOpenList)}>
           <p> Filter by {region || "Reigon"} </p>

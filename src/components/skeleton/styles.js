@@ -17,7 +17,7 @@ export const SkeletonStyle = createGlobalStyle`
     cursor:pointer
 }
 .skeleton-card .img{
-    height:190px;
+    height:170px;
     background-color ${(props) => props.theme.secondary};
 }
 .skeleton-card .content{

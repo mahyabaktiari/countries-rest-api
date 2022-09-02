@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-export const GlobalStyle = createGlobalStyle`
+export const NavbarStyle = createGlobalStyle`
 .navbar{
     background-color: ${(props) => props.theme.secondary};
     color:${(props) => props.theme.primaryText};
@@ -20,6 +20,9 @@ export const GlobalStyle = createGlobalStyle`
     display: flex;
     align-items: center ;
     cursor: pointer
+}
+.theme-box p{
+    margin-left:6px
 }
 @media only screen and (max-width: 768px) {
     .container-navbar{

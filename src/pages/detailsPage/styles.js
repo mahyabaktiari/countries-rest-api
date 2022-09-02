@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-export const GlobalStyle = createGlobalStyle`
+export const DetailsStyle = createGlobalStyle`
 .container-detaile-page{
     padding:30px ;
     display:flex;

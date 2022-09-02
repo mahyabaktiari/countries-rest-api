@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-export const GlobalStyle = createGlobalStyle`
+export const HomeStyle = createGlobalStyle`
 .header{
     display:flex;
     justify-content: space-between;
@@ -29,8 +29,8 @@ export const GlobalStyle = createGlobalStyle`
     color: ${(props) => props.theme.primaryText};
   }
 .searchbar input:focus-visible{
-  outline: 0;
-  padding: 0;
+    outline: 0;
+    padding: 0;
 }
 .country-container{
     display:flex;
@@ -57,14 +57,16 @@ export const GlobalStyle = createGlobalStyle`
     objectFit: cover;
     border-radius:4px 4px 0 0;
 }
+.country-card .country-card-content{
+    padding:0 20px
+}
 .country-card h1{
     font-size:20px;
-    padding-left:10px;
     margin: 20px 0
 }
 .country-card .description{
-    padding-left:10px;
-    margin:5px 0
+    margin:5px 0;
+    word-break: break-all
 }
 .description span{
     color:${(props) => props.theme.secondaryText}

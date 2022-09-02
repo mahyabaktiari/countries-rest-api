@@ -1,10 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 //styles
-import { GlobalStyle } from "./styles";
+import { HomeStyle } from "./styles";
 //icon
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faL, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
 import Filter from "../../components/filterComponent";
 import { useSearchParams } from "react-router-dom";
@@ -20,17 +20,22 @@ const Home = ({ theme }) => {
   const [filter, setFilter] = useSearchParams();
   const navigate = useNavigate();
   const region = filter?.get("region");
+
   useEffect(() => {
-    getCountries();
+    if (!nameCountry) {
+      getCountries();
+    }
   }, [region]);
 
   const getCountries = (name) => {
     setloading(true);
+
     let url = name
       ? `https://restcountries.com/v3.1/name/${name}`
       : region
       ? `https://restcountries.com/v3.1/region/${region}`
       : "https://restcountries.com/v3.1/all";
+
     try {
       axios.get(url).then((res) => {
         setAllCountries(JSON.parse(JSON.stringify(res.data)));
@@ -45,11 +50,13 @@ const Home = ({ theme }) => {
   const searchCountry = (e) => {
     if (e.key == "Enter") {
       getCountries(e.target.value);
+      setFilter("");
     }
   };
 
   const filterCountries = (region) => {
     setFilter(region);
+    setNameCountry("");
   };
 
   useEffect(() => {
@@ -68,19 +75,14 @@ const Home = ({ theme }) => {
   };
 
   function fetchMoreListItems() {
-    console.log("chunkOfCountries", chunkOfCountries);
     const startSlice = chunkOfCountries.length;
     const endSlice =
       allCountries.length > startSlice + 24
         ? startSlice + 24
         : allCountries.length;
-    console.log(startSlice, endSlice);
 
     setTimeout(() => {
       const newCountry = allCountries.slice(startSlice, endSlice);
-      console.log("newCountry", newCountry);
-      console.log("chunkOfCountries", chunkOfCountries);
-
       setChunkOfCountries([...chunkOfCountries, ...newCountry]);
       setIsFetching(false);
     }, 2500);
@@ -88,7 +90,7 @@ const Home = ({ theme }) => {
 
   return (
     <>
-      <GlobalStyle theme={theme} />
+      <HomeStyle theme={theme} />
       <div>
         <div className="header">
           <div className="searchbar">
@@ -120,16 +122,16 @@ const Home = ({ theme }) => {
                   <div className="country-card">
                     <div>
                       <img src={country.flags.png} />
-                      <div>
+                      <div className="country-card-content">
                         <h1>{country.name.common}</h1>
                         <p className="description">
-                          population : <span>{country.population}</span>
+                          population: <span>{country.population}</span>
                         </p>
                         <p className="description">
-                          region : <span>{country.region}</span>
+                          region: <span>{country.region}</span>
                         </p>
                         <p className="description">
-                          capital :<span>{country.capital}</span>
+                          capital: <span>{country.capital}</span>
                         </p>
                       </div>
                     </div>
