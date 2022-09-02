@@ -3,7 +3,7 @@
 Countries REST API developed by `ReactJs` library that by using it you can get all countries from all over the world (by using `https://restcountries.com/#api-endpoints-v2` API endpoint), search a certain country, view details of it and filter countries by region filter.
 
 ## Project Repository:
-`https://github.com/mahyabaktiari/countries-rest-api`
+[Github Repo](https://github.com/mahyabaktiari/countries-rest-api)
 
 
 ## Install and Run scripts:
