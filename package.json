@@ -1,7 +1,7 @@
 {
   "name": "list-of-countries",
   "version": "0.1.0",
-  "homepage":"https://mahyabaktiari.github.io/react-gh-pages",
+  "homepage": "https://mahyabaktiari.github.io",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
