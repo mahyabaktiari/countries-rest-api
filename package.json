@@ -1,7 +1,7 @@
 {
   "name": "list-of-countries",
   "version": "0.1.0",
-  "homepage": "mywebsite2323123.com",
+  "homepage": "https://mahyabaktiari.github.io/countries-rest-api",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
